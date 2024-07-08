@@ -62,7 +62,7 @@ def register_user():
         }
         return jsonify(response), 403
     
-    # if thw email does Not exist, go ahead and make a new record in the DataBase
+    # if the email does Not exist, go ahead and make a new record in the DataBase
     # sign this person up
     user = User()
     user.email = email
@@ -91,16 +91,13 @@ def get_invoices():
     
     user = User.query.filter_by(id = user_id).first()
     #query and retrieve any invoices that are in the DB
-    user_invoices = Invoice.query.filter_by(user_id).all()
+    user_invoices = Invoice.query.filter_by(user_id=user_id).all()
 
-    print("user_invoices: ", user_invoices)
 
     # use a list comprehension (for loop) that will:
     # 1. Get each Invoice object and serialize() it
     # 2. Put them in the processed_invoices array
     processed_invoices = [each_invoice.serialize() for each_invoice in user_invoices]
-
-    print("processed invoices:", processed_invoices)
 
     response = {
         'msg': f'Hello {user.email}, here are your invoices.',
