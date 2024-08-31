@@ -9,10 +9,14 @@ const navigate = useNavigate();
 const {store, actions} = useContext(Context);
 
 const handleClick = () => {
-    actions.signUp(email, password).then(() => {
-        navigate('/login')
-    })
+    actions.signUp(email, password)
 }
+
+useEffect (() => {
+    if(store.isSignUpSuccessful) {
+        navigate('/login')
+    }
+}, [store.isSignUpSuccessful])
 
     return (
         <>
