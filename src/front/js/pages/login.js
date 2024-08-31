@@ -53,10 +53,14 @@ export const Login = () => {
                             />
                         </div>
                         <div>
-                            <button
-                                onClick={handleClick}
-                            >Login
+                            <button onClick={handleClick}>
+                                Login
                             </button>
+                        </div>
+                        <div>
+                            <Link to="/signup">
+                                Don't have an account? Join Now
+                            </Link>
                         </div>
                     </>
                 )}

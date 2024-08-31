@@ -44,9 +44,8 @@ useEffect (() => {
                     />
                 </div>
                 <div>
-                    <button
-                        onClick={handleClick}
-                    >Sign Up
+                    <button onClick={handleClick}>
+                            Sign Up
                     </button>
                 </div>
             </div>

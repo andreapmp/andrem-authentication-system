@@ -124,7 +124,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					invoices: data.invoices,
 					invoiceMessage: data.msg
 				})
-				console.log(data.msg, data.invoices)
 				return data;
 			}
 		}

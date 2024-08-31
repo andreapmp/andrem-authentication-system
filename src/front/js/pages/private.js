@@ -19,6 +19,11 @@ export const Private = () => {
         authenticate();
     }, [actions]);
 
+    const handleLogout = () => {
+        actions.logout();
+        navigate("/login");
+    }
+
     return (
         <div className="private-page">
             <h1>Invoices</h1>
@@ -51,12 +56,10 @@ export const Private = () => {
                     </table>
                 </div>
             ) : (
-                <p>A problem has ocurred.</p>
+                <p>A problem has ocurred. Please, try again later.</p>
             )}
 
-            <button
-                onClick={() => {actions.logout()}}
-            >Logout</button>
+            <button onClick={handleLogout}>Logout</button>
         </div>
     );
 }
