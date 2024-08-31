@@ -17,16 +17,13 @@ export const Private = () => {
             }
         }
         authenticate();
-    }, [actions]);
-
-    const handleLogout = () => {
-        actions.logout();
-        navigate("/login");
-    }
+    }, []);
 
     return (
         <div className="private-page">
-            <h1>Invoices</h1>
+            <div className='ms-3'>
+                <h1>Invoices</h1>
+            </div>
             {authStatus === "Pending" ? (
                 <p>Loading...</p>
             ) : authStatus === "denied" ? (
@@ -58,8 +55,6 @@ export const Private = () => {
             ) : (
                 <p>A problem has ocurred. Please, try again later.</p>
             )}
-
-            <button onClick={handleLogout}>Logout</button>
         </div>
     );
 }

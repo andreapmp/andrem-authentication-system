@@ -29,40 +29,53 @@ export const Login = () => {
                         </Link>
                     </>
                 ) : (
-                    <>
-                        <div>
+                    <div className='login-container mx-5'>
+                        <div className='login-title mt-5'>
                             <h1>Log In</h1>
                         </div>
                         <div>
                             {store.loginMessage || ""}
                         </div>
-                        <div>
+
+                        <div className="mb-3">
+                            <label htmlFor="exampleInputEmail1" className="form-label">
+                                Email address
+                            </label>
                             <input
+                                onChange={e => setEmail(e.target.value)}
                                 type="email"
+                                className="form-control"
+                                id="exampleInputEmail1"
                                 placeholder="Enter email"
                                 value={email}
-                                onChange={e => setEmail(e.target.value)}
-                                required
-                            />
-                            <input
-                                type="password"
-                                placeholder="Enter password"
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
                                 required
                             />
                         </div>
-                        <div>
-                            <button onClick={handleClick}>
+                        <div className="mb-3">
+                            <label htmlFor="exampleInputPassword1" className="form-label">
+                                Password
+                            </label>
+                            <input
+                                onChange={e => setPassword(e.target.value)}
+                                type="password"
+                                className="form-control"
+                                id="exampleInputPassword1"
+                                placeholder="Enter password"
+                                value={password}
+                                required
+                            />
+                        </div>
+                        <div className='login-button mt-4 text-center'>
+                            <button onClick={handleClick} type="submit" className="btn btn-primary">
                                 Login
                             </button>
                         </div>
-                        <div>
+                        <div className='join-link mt-3 text-center'>
                             <Link to="/signup">
                                 Don't have an account? Join Now
                             </Link>
                         </div>
-                    </>
+                    </div>
                 )}
             </div>
         </>
